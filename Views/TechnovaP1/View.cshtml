@@ -1,0 +1,41 @@
+﻿@model TechnovaP1.Models.tnuser
+@{
+    /**/
+
+    Layout = null;
+}
+
+@using (Html.BeginForm("View", "TechnovaP1", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.u_id)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mobile, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telephonenumber, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Telephonenumber, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Department, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Department, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Degination, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Degination, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <br />
+    <div class="form-group">
+        <center><input type="submit" value="Close" class="btn btn-primary" /> </center>
+
+    </div>
+
+}
