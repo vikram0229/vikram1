@@ -53,12 +53,12 @@
                     { "data": "user_name" },
                     { "data": "loc" , "orderable": false },
                    
-                     { "data": "user_id" },
-                    { "data": "asset_name" },
-                    { "data": "asset_sn" },
-                    { "data": "mobile" },
-                    { "data": "dept" },
-                    { "data": "desig" },
+                     { "data": "user_id" , "orderable": false },
+                    { "data": "asset_name" , "orderable": false },
+                    { "data": "asset_sn" , "orderable": false },
+                    { "data": "mobile" , "orderable": false },
+                    { "data": "dept" , "orderable": false },
+                    { "data": "desig" , "orderable": false },
                     {"data": "u_id", "render": function (data) {
                            
                         return " <a class='btn btn-warning btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","TechnovaP1")/"+data+"')> <i class='fa fa-pencil'></i> View </a >";
