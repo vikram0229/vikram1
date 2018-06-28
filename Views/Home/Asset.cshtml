@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Technova Asset List";
+}
+
+<h4>Technova Asset Lists </h4>
+
+
+
+<table onBlur="window.focus()" id="userTable" class="w3-table  w3-hoverable w3-striped w3-bordered w3-border" style="width:100%; ;font-size:11px;margin-left:5px;margin-right:5px">
+    <thead>
+        <tr class="w3-green ">
+
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Asset S/N</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Status</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Make</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Type</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle;">Model </th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle;">MachineHostname</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">HDD</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">RAM</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Processor</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">YOP</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Warr Start</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Warr End</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">Warr under</th>
+            <th class="w3-text-white w3-center " style="vertical-align:middle">View</th>
+        </tr>
+    </thead>
+
+</table>
+<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+
+        var Popup, dataTable;
+
+
+
+
+       dataTable= $(document).ready(function () {
+            $('#userTable').DataTable({
+
+                "ajax": {
+
+                    "url": "/Home/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+
+                    { "data": "asset_sn" },
+            
+                    { "data": "asset_status", "orderable": false },
+                     { "data": "make" , "orderable": false },
+                      { "data": "asset_type" , "orderable": false },
+                    { "data": "asset_model" , "orderable": false },
+                      { "data": "asset_name" , "orderable": false },
+                    { "data": "hdd" , "orderable": false },
+                    { "data": "ram" , "orderable": false },
+                    { "data": "processor", "orderable": false },
+                    { "data": "yop", "orderable": false },
+                    { "data": "warran_s", "orderable": false },
+                    { "data": "warran_e", "orderable": false },
+                    { "data": "warran_u", "orderable": false },
+                    {"data": "u_id", "render": function (data) {
+
+                        return " <a class='btn btn-warning btn-sm' data-toggle='modal' data-target='#myModal' onclick=showdetail('@Url.Action("View1","Home")/"+data+"') > <i class='fa fa-pencil'></i> View </a >";
+
+                        },
+                        "orderable": false
+
+                    }
+
+                ],
+                "language": {
+
+                    "emptyTable": "No data found, Please click on <b>Add New</b> Button"
+                }
+
+
+            });
+        });
+
+
+
+
+    </script>
+
+}
+
+<div class="modal fade" id="myModal" role="dialog" style="width:100%">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Employee Full Details : </h5>
+            </div>
+            <div class="modal-body" style="width:100%">
+
+                <script type="text/javascript">
+                        function showdetail(url) {
+
+                            if (url == "") {
+                                document.getElementById("txtHint").innerHTML = "";
+                                return;
+                            }
+                            if (window.XMLHttpRequest) {
+                                // code for IE7+, Firefox, Chrome, Opera, Safari
+                                xmlhttp = new XMLHttpRequest();
+                            } else { // code for IE6, IE5
+                                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                            }
+                            xmlhttp.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    document.getElementById("txtHint").innerHTML = this.responseText;
+                                }
+                            }
+                            xmlhttp.open("GET", url, true);
+                            xmlhttp.send();
+                        }
+                </script>
+
+                <div id='txtHint'> </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

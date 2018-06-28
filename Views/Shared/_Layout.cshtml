@@ -4,29 +4,166 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Technova/Navbar/boot.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/Technova/Footer/footer.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 
+	<nav style="visibility:visible" class="navbar navbar-inverse  navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("TECHNOVA JET", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Services<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>@Html.ActionLink("Employee List", "Employee", "Home")</li>
+							<li>@Html.ActionLink("Asset List", "Asset", "Home")</li>
+							<li>@Html.ActionLink("Printer List", "Printer", "Home")</li>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My First Web Application of Visual Studio.</p>
-        </footer>
-    </div>
 
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+						</ul>
+					</li>
 
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+					<li>@Html.ActionLink("About", "About", "Home")</li>
+					<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+				</ul>
 
-    @RenderSection("scripts", required: false)
+				<form method="GET" class="navbar-form navbar-right" action="../search.php">
+					<div class="input-group">
+						<input type="text" class="form-control" name="q" placeholder="Search Google..." required>
+						<div class="input-group-btn">
+							<button class="btn btn-default" name="id" value="1" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
 
+					<li><a href="../pages/student-login.php?register=1" title="Register Here" data-toggle="popover" data-trigger="hover" data-content=""><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+					<li> <a title="Login Here" data-toggle="popover" data-trigger="hover" data-content=""><span class="glyphicon glyphicon-user"></span> Login</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+	<!--  <div class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+			  <div class="navbar-header">
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+				  </button>
+				  @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			  </div>
+			  <div class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav">
+					  <li>@Html.ActionLink("Home", "Index", "Home")</li>
+					  <li>@Html.ActionLink("About", "About", "Home")</li>
+					  <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+				  </ul>
+			  </div>
+		  </div>
+	  </div> -->
+	<div class="body-content">
+		@RenderBody()
+
+	</div>
+
+	<footer class="footer-distributed">
+
+		<div class="footer-left">
+
+			<h4>TECHNOVA<span>JET</span></h4>
+
+			<p class="footer-links">
+				<a href="../index.php">Home</a>
+				·
+				<a href="../index.php/pages/student-login.php">Services</a>
+
+				·
+				<a href="../pages/About.php?id=1">About</a>
+				.
+				<a href="../pages/Contact.php?id=1">Contact</a>
+			</p>
+			<br>
+			<!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+			<!-- Histats.com  START  (aync)-->
+			<script type="text/javascript">
+				var _Hasync = _Hasync || [];
+				_Hasync.push(['Histats.start', '1,3887992,4,202,118,45,00001001']);
+				_Hasync.push(['Histats.fasi', '1']);
+				_Hasync.push(['Histats.track_hits', '']);
+				(function () {
+					var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+					hs.src = ('//s10.histats.com/js15_as.js');
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+				})();</script>
+			<noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?3887992&101" alt="site stats" border="0"></a></noscript>
+			<!-- Histats.com  END  -->
+
+
+		</div>
+
+
+
+
+		</div><!--footer left ends -->
+
+		<div class="footer-center">
+			<p>FOLLOW ON FACEBOOK</p><br><br>
+
+
+
+		</div><!--footer center ends -->
+
+		<div class="footer-right">
+			<form method="GET" class="navbar-form navbar-right" action="../search2.php">
+				<div class="input-group">
+					<input type="text" class="form-control" name="q" placeholder="Search Google" required>
+					<div class="input-group-btn">
+						<button class="btn btn-default" name="id" value="1" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			</br>
+			<p class="footer-company-about">
+				<span>About the Website:</span>
+				This is only a website which provides  things makes study easier.
+			</p>
+
+		</div>
+
+	</footer>
+
+
+
+
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+	@RenderSection("scripts", required: false)
 </body>
 </html>

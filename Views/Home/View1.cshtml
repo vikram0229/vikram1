@@ -1,0 +1,152 @@
+﻿@model Technova.Models.tnuser
+@{
+    /**/
+
+    /**/
+
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("View1", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.u_id)
+
+
+    <table style="width:100%;font-size:11px;" class="w3-table table-bordered table-hover">
+
+        <tbody>
+
+
+            <tr>
+                <th colspan="7" style="text-align:center;color:#FF69B4;">Employee's Details</th>
+            </tr>
+
+            <tr>
+                <th style="color:#7B68EE;">Full Name</th>
+                <td color="green">@Html.DisplayFor(m => m.user_name) </td>
+
+                <th style="color:#7B68EE;">EmpID </th>
+                <td color="green">@Html.DisplayFor(m => m.emp_id)</td>
+
+                <th style="color:#7B68EE;">username</th>
+                <td color="green">@Html.DisplayFor(m => m.user_id)</td>
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Locationt</th>
+                <td color="green">@Html.DisplayFor(m => m.loc) </td>
+
+                <th style="color:#7B68EE;">Department</th>
+                <td color="green">@Html.DisplayFor(m => m.dept) </td>
+
+                <th style="color:#7B68EE;">Designation</th>
+                <td color="green">@Html.DisplayFor(m => m.desig)</td>
+            </tr>
+
+            <tr>
+                <th colspan="7" style="text-align:center;color:#FF69B4;">Contact's Details</th>
+
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Mobile</th>
+                <td color="green">@Html.DisplayFor(m => m.mobile)</td>
+
+                <th style="color:#7B68EE;">phone </th>
+                <td color="green">@Html.DisplayFor(m => m.phone)</td>
+
+                <th style="color:#7B68EE;">Ext</th>
+                <td color="green">@Html.DisplayFor(m => m.desk)</td>
+            </tr>
+            <tr><th style="color:#7B68EE;">Email Address</th><td colspan="5" color="green">@Html.DisplayFor(m => m.email)</td></tr>
+
+            <tr>
+                <th colspan="7" style="text-align:center;color:#FF69B4;">Asset Details</th>
+
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Hostname </th>
+                <td color="green">@Html.DisplayFor(m => m.asset_name)</td>
+
+                <th style="color:#7B68EE;">Serial number</th>
+                <td color="green">@Html.DisplayFor(m => m.asset_sn)</td>
+
+                <th style="color:#7B68EE;">Asset Type </th>
+                <td color="green">@Html.DisplayFor(m => m.asset_type)</td>
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Make</th>
+                <td color="green">@Html.DisplayFor(m => m.make)</td>
+
+                <th style="color:#7B68EE;">Model</th>
+                <td color="green">@Html.DisplayFor(m => m.asset_model)</td>
+
+                <th style="color:#7B68EE;">Asset Status</th>
+                <td color="green">@Html.DisplayFor(m => m.asset_status)</td>
+
+                
+
+
+
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">YOP </th>
+                <td color="green">@Html.DisplayFor(m => m.yop)</td>
+
+                <th style="color:#7B68EE;">Warranty Start</th>
+                <td color="green">@Html.DisplayFor(m => m.warran_s) </td>
+
+                <th style="color:#7B68EE;">Warranty End </th>
+                <td color="green">@Html.DisplayFor(m => m.warran_e)</td>
+
+               
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Warranty Under</th>
+                <td color="green">@Html.DisplayFor(m => m.warran_u)</td>
+
+
+                <th style="color:#7B68EE;">Asset Received From </th>
+                <td colspan="3"  color="green">@Html.DisplayFor(m => m.arf)</td>
+
+            </tr>
+            
+
+            <tr>
+                <th colspan="7" style="text-align:center;color:#FF69B4;">Asset Configuration</th>
+
+            </tr>
+            <tr>
+                <th style="color:#7B68EE;">Operating System</th>
+                <td color="green">@Html.DisplayFor(m => m.os)</td>
+
+                <th style="color:#7B68EE;">HDD </th>
+                <td color="green">@Html.DisplayFor(m => m.hdd)</td>
+
+                <th style="color:#7B68EE;">RAM </th>
+                <td color="green">@Html.DisplayFor(m => m.ram)</td>
+            </tr>
+            <tr>
+                
+
+                <th style="color:#7B68EE;">Processor</th>
+                <td color="green">@Html.DisplayFor(m => m.processor)</td>
+         
+                <th style="color:#7B68EE;">Office Version</th>
+                <td color="green">@Html.DisplayFor(m => m.office_ver) </td>
+
+                <th style="color:#7B68EE;">Last Updated On</th>
+                <td color="green">@Html.DisplayFor(m => m.dou)</td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+}
